@@ -1,9 +1,11 @@
 let board = document.querySelector('#board');
 let resetB = document.querySelector('#reset');
 let divCount = 0;
-let fieldDim = 3;
+let fieldDim = 5;
 let mineField = [];
+let rando;
 
+//create sufficient divs for square of dimension fieldDim
 for(let i=0;i<fieldDim*fieldDim;i++) {
     let newDiv = document.createElement('div');
     newDiv.classList.add('square');
@@ -11,12 +13,13 @@ for(let i=0;i<fieldDim*fieldDim;i++) {
 }
 let squares = document.querySelectorAll('.square');
 
+//randomly seed mines to each div, assign 2D array index, establish dataset
 function layMines() {
     for(let i=0;i<fieldDim;i++) {
         mineField[i] = [];
         for (let j=0;j<fieldDim;j++) {
-            rando = Math.floor(Math.random()*2);
-            //rando = Math.random < 0.4; //use boolean
+            //rando = Math.floor(Math.random()*2); //use binary - 50% seed rate
+            rando = Math.random() < 0.4; //use boolean - specified seed rate 0.4
             mineField[i][j] = squares[divCount];
             mineField[i][j].dataset.isMine = rando;
             mineField[i][j].dataset.neighbMines = 0;
@@ -29,11 +32,7 @@ function layMines() {
 }
 layMines();
 
-// console.log(m, n);
-// if(mineField[m][n].dataset.isMine === '1'){
-//     mineField[i][j].dataset.neighbMines = parseInt(mineField[i][j].dataset.neighbMines,10) + 1;
-// }
-
+//sweep thru squares adjacent to target element
 function searchNeighbors(i,j) {
     for(let m=i-1;m<=i+1;m++) {
         for(let n=j-1;n<=j+1;n++){
@@ -43,6 +42,7 @@ function searchNeighbors(i,j) {
     }
 }
 
+//filter the sweep to stay within bounds of 2D array
 function pickyLook (i,j,m,n) {
     if (i > 0 || m >= i) {
         console.log("i is greater than 0 or m is greater-than or equal to i");
@@ -62,16 +62,19 @@ function pickyLook (i,j,m,n) {
     }
 }
 
+//determine if square adjacent to target element is mined
 function checkNeighbor(i,j,m,n) {
-    if(mineField[m][n].dataset.isMine === '1'){
+    if(mineField[m][n].dataset.isMine === 'true'){
         addValue(i,j)
     }
 }
 
+//add to count of mines on squares adjacent to target element
 function addValue(i,j) {
     mineField[i][j].dataset.neighbMines = parseInt(mineField[i][j].dataset.neighbMines,10) + 1;
 }
 
+//reset the board to initial
 function reset() {
     divCount = 0;
     squares.forEach(function(element) {
@@ -81,17 +84,18 @@ function reset() {
     layMines();
 }
 
+//determine if element selected is mined or not; if mined, trip all mines
 function play(element) {
     if (element.style.backgroundColor !== 'lightblue' && element.style.backgroundColor !== 'red') {
-        if (element.dataset.isMine === '0') {
+        if (element.dataset.isMine === 'false') {
             element.style.backgroundColor = 'lightblue';
             let i = parseInt(element.dataset.row,10);
             let j = parseInt(element.dataset.column,10);
             searchNeighbors(i,j);
             element.innerText = element.dataset.neighbMines;
-        } else if (element.dataset.isMine === '1') {
+        } else if (element.dataset.isMine === 'true') {
             squares.forEach(function(element) {
-                if (element.dataset.isMine === '1') {
+                if (element.dataset.isMine === 'true') {
                     element.style.backgroundColor = 'red';
                 }
             })
