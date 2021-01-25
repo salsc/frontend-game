@@ -36,7 +36,7 @@ layMines();
 function searchNeighbors(i,j) {
     for(let m=i-1;m<=i+1;m++) {
         for(let n=j-1;n<=j+1;n++){
-            console.log(i,j,m,n);
+            // console.log(i,j,m,n);
             pickyLook(i,j,m,n);
         }
     }
@@ -45,15 +45,15 @@ function searchNeighbors(i,j) {
 //filter the sweep to stay within bounds of 2D array
 function pickyLook (i,j,m,n) {
     if (i > 0 || m >= i) {
-        console.log("i is greater than 0 or m is greater-than or equal to i");
-        if (i < fieldDim || m <= i) {
-            console.log('i is less than fielddim or m is less than or equal to i');
+        // console.log("i is greater than 0 or m is greater-than or equal to i");
+        if (i < fieldDim-1 || m <= i) {
+            // console.log('i is less than fielddim or m is less than or equal to i');
             if (j > 0 || n >= j) {
-                console.log('j is greater than 0 or n is greater than or equal to j');
-                if (j < fieldDim || n <= j) {
-                    console.log('j is less than fielddim or n is less than or equal to j');
+                // console.log('j is greater than 0 or n is greater than or equal to j');
+                if (j < fieldDim-1 || n <= j) {
+                    // console.log('j is less than fielddim or n is less than or equal to j');
                     if (m !== i || n !== j) {
-                        console.log('m is not equal to i or n is not equal to j');
+                        // console.log('m is not equal to i or n is not equal to j');
                         checkNeighbor(i,j,m,n);
                     }
                 }
