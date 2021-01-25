@@ -10,7 +10,8 @@ Passed HTML5 Validator and CSS Validator
 ### Installation Instructions
 Fork and clone this repository. Open Index.html in browser.
 ### Unsolved Problems
-Number of adjacent squares with mines is not working for last row and last column.
+~~Number of adjacent squares with mines is not working for last row and last column.~~
+No issues currently.
 ### Future Improvements
 +Allow player to flag square as presumed mined, disallow activation of that square.
 +If the player has flagged a number of adjacent squares equal to the number revealed in a non-mined square, allow reveal of all adjacent squares that are not flagged upon event.
