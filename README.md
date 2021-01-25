@@ -11,7 +11,7 @@ Fork and clone this repository. Open Index.html in browser.
 ### Unsolved Problems
 Number of adjacent squares with mines is not working for last row and last column.
 ### Future Improvements
-+Allow player to flag square as presumed mined, disallow activation of that square.
-+If the player has flagged a number of adjacent squares equal to the number revealed in a non-mined square, allow reveal of all adjacent squares that are not flagged upon event.
-+Allow player to select difficulty level between easy, normal, hard which may correspond to grid of 3x3, 5x5, 10,10 grid.
-+In the unlikely event that the player fully reveals the board without setting off any mines, display an appropriate victory condition.
+*Allow player to flag square as presumed mined, disallow activation of that square.
+*If the player has flagged a number of adjacent squares equal to the number revealed in a non-mined square, allow reveal of all adjacent squares that are not flagged upon event.
+*Allow player to select difficulty level between easy, normal, hard which may correspond to grid of 3x3, 5x5, 10,10 grid.
+*In the unlikely event that the player fully reveals the board without setting off any mines, display an appropriate victory condition.
