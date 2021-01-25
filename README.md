@@ -4,8 +4,9 @@
 The objective of this game is to reveal all squares in the grid that do not have mines.
 ### Functional Mechanics
 Clicking on a square will change the color based on presence of mine. If target is not mined, the number of squares with mines adjacent to the target square will be displayed. If target is mined, all squares in the field with mines will turn red.
-### Technologies Used
+### Technologies Used - Validation
 HTML, CSS, JavaScript
+Passed HTML5 Validator and CSS Validator
 ### Installation Instructions
 Fork and clone this repository. Open Index.html in browser.
 ### Unsolved Problems
