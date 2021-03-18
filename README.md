@@ -1,5 +1,6 @@
 # frontend-game
 ## Minesweeper
+Deployed App [Link to deployed app: https://salsc.github.io/frontend-game/](Link to deployed app: https://salsc.github.io/frontend-game/)
 ### Description
 The objective of this game is to reveal all squares in the grid that do not have mines.
 ### Functional Mechanics
